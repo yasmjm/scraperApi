@@ -70,3 +70,14 @@ Which should result in response similar to the following:
     "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
 }
 ```
+
+# Authentication
+To access from local you need to configure your AWS crendetials 
+
+
+# Endpoint
+- List products
+https://svx7go28zi.execute-api.us-east-1.amazonaws.com/hom/get
+
+# Scraper 
+´node scraper.js´
