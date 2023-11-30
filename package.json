@@ -1,0 +1,15 @@
+{
+  "name": "aws-node-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.462.0",
+    "aws-sdk": "^2.1508.0",
+    "serverless": "^3.38.0",
+    "superagent": "^8.1.2"
+  },
+  "devDependencies": {
+    "serverless-plugin-chrome": "^1.0.0-55.3"
+  }
+}
