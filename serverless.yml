@@ -1,40 +1,50 @@
 org: yasmjm
-app: aws-node-project
-
-package:
-  exclude:
-    - node_modules/puppeteer/.local-chromium/**
-service: scraperApi
+app: demo
+service: demo
+frameworkVersion: '3'
 
 provider:
   name: aws
-  stage: dev
-  region: us-east-1
-  runtime: nodejs6.10
-  stackName: cs-scraper-api
-  disableRollback: true
+  runtime: nodejs18.x
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Scan
+            - dynamodb:PutItem
+          Resource: !Sub arn:aws:dynamodb:us-east-1:${AWS::AccountId}:table/Products
+
+resources:
+  Resources:
+    Products:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Products
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+
 functions:
-  cronJob:
-    handler: scraper.handler
-    runtime: nodejs14.x
-    memorySize: 2048
-    timeout: 15
-    architecture: x86_64
+  scraper:
+    handler: index.scraper
+    memorySize: 1024
+    timeout: 300
     events:
       - schedule:
           rate:
             - cron(15 10 * * ? *)
-  lambdaApi:
-    handler: index.handler
-    runtime: nodejs14.x
-    memorySize: 256
-    timeout: 15
+  api:
+    handler: index.api
+    memorySize: 512
+    timeout: 10
     events:
-    - http: 
-        path: /
-        method: get
-    iamRoleStatements:
-      - Effect: Allow
-        Action:
-          - dynamodb:Scan
-        Resource: "arn:aws:dynamodb:us-east-1:844438313671:table/Tabela"
+      - http:
+          path: scraper
+          method: get

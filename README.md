@@ -37,39 +37,6 @@ functions:
   hello: aws-node-project-dev-hello (1.5 kB)
 ```
 
-### Invocation
-
-After successful deployment, you can invoke the deployed function by using the following command:
-
-```bash
-serverless invoke --function hello
-```
-
-Which should result in response similar to the following:
-
-```json
-{
-    "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": {}\n}"
-}
-```
-
-### Local development
-
-You can invoke your function locally by using the following command:
-
-```bash
-serverless invoke local --function hello
-```
-
-Which should result in response similar to the following:
-
-```
-{
-    "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
-}
-```
 
 # Authentication
 To access from local you need to configure your AWS crendetials 
@@ -77,7 +44,7 @@ To access from local you need to configure your AWS crendetials
 
 # Endpoint
 - List products
-https://svx7go28zi.execute-api.us-east-1.amazonaws.com/hom/get
+https://scv0micak4.execute-api.us-east-1.amazonaws.com/dev/scraper
 
 # Scraper 
 ´node scraper.js´
