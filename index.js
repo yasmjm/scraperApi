@@ -15,10 +15,10 @@ async function scraper() {
   let browser
   try {
     browser = await puppeteer.launch({
-      
+      ignoreDefaultArgs: ['--disable-extensions'],
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
-      executablePath: await chromium.executablePath(),
+      executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
       headless: true
     });
 
@@ -74,9 +74,9 @@ async function api(event) {
   return { statusCode: 200, body: JSON.stringify(res) }
 }
 
-// (async () => {
-//   await scraper()
-// })()
+(async () => {
+  await scraper()
+})()
 
 module.exports = {
   scraper,
