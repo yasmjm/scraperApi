@@ -1,4 +1,13 @@
 {
+  "name": "Scrapper-API",
+  "version": "1.0.0",
+  "description": "Scrapper Amazon",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "author": "https://github.com/yasmjm",
+  "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.462.0",
     "@aws-sdk/lib-dynamodb": "^3.464.0",
