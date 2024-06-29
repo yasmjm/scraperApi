@@ -1,5 +1,5 @@
 <!--
-title: 'Srapper API'
+title: 'Scraper API'
 description: 'Scraping service for most purchased items from the Amazon website '
 layout: Doc
 framework: v3
@@ -11,7 +11,7 @@ authorName: 'Yasmim'
 -->
 
 
-# Srapper API
+# Scraper API
 Para iniciar o desenvolvimento do serviço foi necessário configurar as crendencias AWS com o serverless, seguido da criaçao de duas lambda functions:
 
 1. Um crawler para fazer o scraper e obter os três produtos da página da Amazon e salvar no Dynamodb
